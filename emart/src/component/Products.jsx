@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Skeleton from 'react-loading-skeleton'
 import './style.css';
 
 const Products = () => {
@@ -29,18 +30,33 @@ const Products = () => {
     const Loading = () => {
         return (
             <>
-                loading ...
+                <div className="col-md-3">
+                    <Skeleton height={350}/>
+                </div>
+                <div className="col-md-3">
+                    <Skeleton height={350}/>
+                </div>
+                <div className="col-md-3">
+                    <Skeleton height={350}/>
+                </div>
+                <div className="col-md-3">
+                    <Skeleton height={350}/>
+                </div>
             </>
         )
     }
+
+    // const filterProduct = (cat) => {
+    //     const updatedList()
+    // }
 
     const ShowProducts = () => {
         return (
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5">
-                    <button className="btn btn-outline-dark me-2">All</button>
-                    <button className="btn btn-outline-dark me-2">Men's Clothing</button>
-                    <button className="btn btn-outline-dark me-2">Women's Clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("Men's Clothing")}>Men's Clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("Women's Clothing")}>Women's Clothing</button>
                     <button className="btn btn-outline-dark me-2">Jewelery Clothing</button>
                     <button className="btn btn-outline-dark me-2">Electronic</button>
                 </div>
@@ -49,14 +65,14 @@ const Products = () => {
                         <>
                             <div className="col-md-3 mb-4">
                                 <div className="card h-100 text-center p-4">
-                                    <img src={product.image} className="card-img-top" alt={product.title} height={"450px"}/>
-                                        <div className="card-body">
-                                            <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
-                                            <p className="card-text lead fw-bold">R${product.price}</p>
-                                            <a href="#" className="btn btn-outline-dark">
-                                                Buy Now
-                                            </a>
-                                        </div>
+                                    <img src={product.image} className="card-img-top" alt={product.title} height={"450px"} />
+                                    <div className="card-body">
+                                        <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
+                                        <p className="card-text lead fw-bold">R${product.price}</p>
+                                        <a href="#" className="btn btn-outline-dark">
+                                            Buy Now
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </>
