@@ -8,7 +8,7 @@ const Home = () => {
             <div class="card bg-dark text-white border-0">
                 <img src="/assets/bg.jpg" class="card-img" alt="Background"
                     heinght="550px" />
-                <div class="card-img-overlay d-flex flex-column justify-content-arrond">
+                <div class="card-img-overlay d-flex flex-column justify-content-center">
                     <div className="container-body">
                         <h5 class="card-title display-3 fw-border md-o color:black">NEW SEASON ARRIVALS </h5>
                         <p class="card-text">
