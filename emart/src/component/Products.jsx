@@ -17,7 +17,6 @@ const Products = () => {
                 setData(await response.clone().json());
                 setFilter(await response.json());
                 setLoading(false);
-                console.log(filter);
             }
 
             return () => {
@@ -46,26 +45,28 @@ const Products = () => {
         )
     }
 
-    // const filterProduct = (cat) => {
-    //     const updatedList()
-    // }
+    const filterProduct = (cat) => {
+        const updatedList = data.filter((x) => x.category === cat);
+        setFilter(updatedList);
+        
+    }
 
     const ShowProducts = () => {
         return (
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5">
                     <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("Men's Clothing")}>Men's Clothing</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("Women's Clothing")}>Women's Clothing</button>
-                    <button className="btn btn-outline-dark me-2">Jewelery Clothing</button>
-                    <button className="btn btn-outline-dark me-2">Electronic</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Jewelery</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronics</button>
                 </div>
                 {filter.map((product) => {
                     return (
                         <>
                             <div className="col-md-3 mb-4">
                                 <div className="card h-100 text-center p-4">
-                                    <img src={product.image} className="card-img-top" alt={product.title} height={"450px"} />
+                                    <img  src={product.image} className="card-img-top" alt={product.title} height={"450px"} />
                                     <div className="card-body">
                                         <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
                                         <p className="card-text lead fw-bold">R${product.price}</p>
@@ -77,9 +78,9 @@ const Products = () => {
                             </div>
                         </>
                     )
-                })};
+                })}
             </>
-        );
+        )
     };
 
     return (
