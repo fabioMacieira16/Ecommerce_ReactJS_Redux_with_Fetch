@@ -1,3 +1,4 @@
+import produce from 'immer';
 const cart = [];
 
 const handleCart = (state = cart, action) => {
@@ -34,9 +35,17 @@ const handleCart = (state = cart, action) => {
             }
             break;
 
+        case '@cart/REMOVE':
+            return produce(state, draft => {
+                const produceIndex = draft.findIndex(p => p.id === action.id)
+
+                if( produceIndex >= 0 ){
+                    draft.splice(produceIndex, 1);
+                }
+            });
+
         default:
             return state;
-            break;
     }
 }
 
