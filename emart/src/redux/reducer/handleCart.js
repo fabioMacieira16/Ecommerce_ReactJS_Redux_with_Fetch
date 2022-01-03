@@ -5,7 +5,7 @@ const handleCart = (state = cart, action) => {
     const product = action.payload;
 
     switch (action.type) {
-        case "ADDITEM":
+        case "@cart/ADDITEM":
             // Check if Product is already Exist
             const exist = state.find((x) => x.id === product.id);
             if (exist) {
@@ -37,12 +37,27 @@ const handleCart = (state = cart, action) => {
 
         case '@cart/REMOVE':
             return produce(state, draft => {
-                const produceIndex = draft.findIndex(p => p.id === action.id)
+                const produceIndex = draft.findIndex(p => p.id === action.id);
 
-                if( produceIndex >= 0 ){
+                if (produceIndex >= 0) {
                     draft.splice(produceIndex, 1);
                 }
             });
+
+        case '@cart/UPDATE_AMOUNT': {
+            if (action.qty <= 0) {
+                return state;
+            }
+
+            return produce(state, draft => {
+                const produceIndex = draft.findIndex(p => p.id === action.id);
+                
+                if (produceIndex >= 0) {                    
+                    draft[produceIndex].qty = Number(action.qty);
+                }
+            });
+        }
+
 
         default:
             return state;
