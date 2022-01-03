@@ -5,14 +5,14 @@ import * as CartActions from '../redux/action';
 import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 
-function Cart ({ cart }) {
-    
+function Cart({ cart }) {
+
     const state = useSelector((state) => state.handleCart)
     const dispatch = useDispatch();
 
     const increment = (cartItem) => {
         console.log(state.map(cartItem => {
-            
+
         }));
         dispatch(CartActions.updateAmount(cartItem.id, cartItem.qty + 1));
     };
@@ -42,7 +42,7 @@ function Cart ({ cart }) {
                             <h3>{cartItem.title}</h3>
 
                             <p className="lead fw-bold">
-                                {cartItem.qty} X ${cartItem.price} = $ 
+                                {cartItem.qty} X ${cartItem.price} = $
                                 {/* {cartItem.subtotal} */}
                             </p>
                             <button className="btn btn-outline-dark me-4" onClick={() => decrement(cartItem)}>
@@ -61,10 +61,12 @@ function Cart ({ cart }) {
 
     const emptyCart = () => {
         return (
-            <div className="px-4 my-5 bg-light rounded-3 py-5">
-                <div className="container py-4">
-                    <div className="row">
-                        <h3>Your Cart is empty</h3>
+            <div className="container col md-6 d-flex justify-content-center">
+                <div className="px-9 my-5 bg-light rounded-3 py-5 ">
+                    <div className="container py-4">
+                        <div className="row">
+                            <h3>Your Cart is empty</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,8 +95,8 @@ function Cart ({ cart }) {
 
 
 const mapStateToProps = state => ({
-     cart: state.cart,
-     
+    cart: state.cart,
+
 });
 
 export default connect(

@@ -4,14 +4,17 @@ import { NavLink } from 'react-router-dom';
 const About = () => {
     return (
         <div>
-            <div className="container">
+            <div className="container py-5 my-5">
                 <div className="row">
-                    <div className="col md-6">
-                        <h1>About Us</h1>
-                        <p className="load">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, placeat! Impedit minima ducimus sequi labore repudiandae, quam fuga rem vero at blanditiis, nesciunt doloremque eos voluptas animi expedita quibusdam dolorum! Nobis amet possimus veniam aliquid ipsum cupiditate aperiam repudiandae, velit est autem quis dolorum dolorem, aliquam quaerat fugiat voluptates, pariatur inventore. Quis officia sapiente nihil delectus dolorum aperiam quasi consequuntur rerum ut, quisquam sed sunt tenetur distinctio quos iure tempora est, voluptate consequatur. Nihil, reiciendis? Consequuntur natus provident doloremque. Qui officia unde non cum dolorum at blanditiis magni dolor error nam, laborum sint reiciendis assumenda dolore omnis eveniet ratione eligendi?
+                    <div className="mt-2 mb-3">
+                        <h1 className="text-primary fw-bold mb-4">We are driven by Challenges</h1>
+                        <p className="lead mb-4">
+                        With over 10 years of experience in the market, we are an eMarketing Digital Development agency 100% focused on increasing business results.
                         </p>
-                        <NavLink to="/contact" />
+                        <NavLink to="/contact" className="btn btn-outline-primary px-3">Contact US</NavLink>
+                    </div>
+                    <div className="col md-6 d-flex justify-content-center">
+                        <img src="/assets/about.png" alt="about us" height="400px" />
                     </div>
                 </div>
             </div>
