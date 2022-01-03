@@ -61,11 +61,11 @@ function Cart({ cart }) {
 
     const emptyCart = () => {
         return (
-            <div className="container col md-6 d-flex justify-content-center">
+            <div className="container">
                 <div className="px-9 my-5 bg-light rounded-3 py-5 ">
                     <div className="container py-4">
                         <div className="row">
-                            <h3>Your Cart is empty</h3>
+                            <h3 className="d-flex justify-content-center">Your Cart is empty</h3>
                         </div>
                     </div>
                 </div>
