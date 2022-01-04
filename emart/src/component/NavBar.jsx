@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from 'react-router-dom'
 import { useSelector } from "react-redux";
+import Login from "./Login";
 
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart);
@@ -17,17 +18,19 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+
               <li className="nav-item">
                 <NavLink className="nav-link active" aria-current="page" to="/">
                   Home
                 </NavLink>
               </li>
+              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/products">
                   Products
                 </NavLink>
               </li>
-             
+
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">
                   About
@@ -40,17 +43,22 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-           <div className="buttons">
-              <NavLink to="/login" className="btn btn-outline-dark">
-                <i className="fa fa-sign-in me-1"></i> Login
-              </NavLink >
+            
+            <div className="buttons">
+            
+            <Login />
+              {/* <NavLink to="/Login" className="btn btn-outline-dark ms-2">
+                <i className="fa fa-user-plus me-1"></i> Login
+              </NavLink> */}
+
               <NavLink to="/Register" className="btn btn-outline-dark ms-2">
                 <i className="fa fa-user-plus me-1"></i> Register
               </NavLink>
+            
               <NavLink to="/Cart" className="btn btn-outline-dark ms-2">
                 <i className="fa fa-shopping-cart me-1"></i> Cart({state.length})
               </NavLink>
-           </div>
+            </div>
           </div>
         </div>
       </nav>
