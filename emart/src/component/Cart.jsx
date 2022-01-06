@@ -9,15 +9,14 @@ function Cart({ cart }) {
 
     const state = useSelector((state) => state.handleCart)
     const dispatch = useDispatch();
+    var subtotal = 0;
 
     const increment = (cartItem) => {
-        console.log(state.map(cartItem => {
-
-        }));
         dispatch(CartActions.updateAmount(cartItem.id, cartItem.qty + 1));
     };
 
     const decrement = (cartItem) => {
+       
         dispatch(CartActions.updateAmount(cartItem.id, cartItem.qty - 1));
     };
 
@@ -26,6 +25,7 @@ function Cart({ cart }) {
     };
 
     const cartItems = (cartItem) => {
+        subtotal = cartItem.qty * cartItem.price;
         return (
             <div className="px-4 bg-light rounded-3" key={cartItem.id}>
                 <div className="container py-4">
@@ -42,8 +42,7 @@ function Cart({ cart }) {
                             <h3>{cartItem.title}</h3>
 
                             <p className="lead fw-bold">
-                                {cartItem.qty} X ${cartItem.price} = $
-                                {/* {cartItem.subtotal} */}
+                                {cartItem.qty} X ${cartItem.price} = R${subtotal}
                             </p>
                             <button className="btn btn-outline-dark me-4" onClick={() => decrement(cartItem)}>
                                 <i className="fa fa-minus"></i>
@@ -76,14 +75,14 @@ function Cart({ cart }) {
     const button = () => {
         <div className="container">
             <div className="row">
-                <NavLink to="/checkout" className="btn btn-outline-primary mb-5 w-25">
+                {/* <NavLink to="/Checkout" className="btn btn-outline-primary mb-5 w-25"> */}
                     Procced to checkout
-                </NavLink>
-                <h2>du certo</h2>
+                {/* </NavLink> */}
             </div>
         </div>
     }
-
+    
+    
     return (
         <>  {state.length === 0 && emptyCart()}
             {state.length !== 0 && state.map(cartItems)}
