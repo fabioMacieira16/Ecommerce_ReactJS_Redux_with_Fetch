@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/Login" component={Login} />
-        <Route exact path="/Register" component={Register} />
+        <Route exact path="/register" component={Register} />
       </Switch>
     </>
   );

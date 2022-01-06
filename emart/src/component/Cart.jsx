@@ -16,7 +16,7 @@ function Cart({ cart }) {
     };
 
     const decrement = (cartItem) => {
-       
+
         dispatch(CartActions.updateAmount(cartItem.id, cartItem.qty - 1));
     };
 
@@ -73,16 +73,18 @@ function Cart({ cart }) {
     }
 
     const button = () => {
-        <div className="container">
-            <div className="row">
-                {/* <NavLink to="/Checkout" className="btn btn-outline-primary mb-5 w-25"> */}
-                    Procced to checkout
-                {/* </NavLink> */}
+        return (
+            <div className="container">
+                <div className="row">
+                    <NavLink to="/checkout" className="btn btn-outline-primary mb-5 w-25 mx-auto">
+                        Procced to checkout
+                    </NavLink>
+                </div>
             </div>
-        </div>
+        )
     }
-    
-    
+
+
     return (
         <>  {state.length === 0 && emptyCart()}
             {state.length !== 0 && state.map(cartItems)}
@@ -95,7 +97,6 @@ function Cart({ cart }) {
 
 const mapStateToProps = state => ({
     cart: state.cart,
-
 });
 
 export default connect(

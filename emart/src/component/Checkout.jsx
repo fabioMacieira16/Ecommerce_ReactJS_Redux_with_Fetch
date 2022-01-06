@@ -11,7 +11,7 @@ const Checkout = () => {
         return (
             <li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
-                    <h6 className="my-0">item.title</h6>
+                    <h6 className="my-0">{item.title}</h6>
                 </div>
                 <span className="text-muted">${item.price}</span>
             </li>
@@ -27,7 +27,7 @@ const Checkout = () => {
                         <span className="badge bg-primary rounded-pill">{state.length}</span>
                     </h4>
                     <ul className="list-group mb-3">
-
+                        {state.map(itemList)}    
                         <li className="list-group-item d-flex justify-content-between">
                             <span>Total (USD)</span>
                             <strong>${total}</strong>
