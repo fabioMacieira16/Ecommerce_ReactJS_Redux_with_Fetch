@@ -1,19 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { formatPrice } from "../util/formatPrice";
 
 const Checkout = () => {
 
     const state = useSelector((state) => state.handleCart);
+    var subtotal = 0;
     var total = 0;
 
     const itemList = (item) => {
-        total = total + item.price;
+        subtotal = formatPrice(item.qty * item.price);
+        total = total + item.qty * item.price;
+        
+
         return (
             <li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
-                    <h6 className="my-0">{item.title}</h6>
+                    <h6 className="my-0">{item.title.substring(0, 11)}</h6>
                 </div>
-                <span className="text-muted">${item.price}</span>
+                <span className="text-muted"> {item.qty} X {item.price} = {subtotal}</span>
+
             </li>
         );
     }
@@ -29,8 +35,8 @@ const Checkout = () => {
                     <ul className="list-group mb-3">
                         {state.map(itemList)}    
                         <li className="list-group-item d-flex justify-content-between">
-                            <span>Total (USD)</span>
-                            <strong>${total}</strong>
+                            <span>Tota (USD)</span>
+                            <strong>$ {total}</strong>
                         </li>
                     </ul>
 

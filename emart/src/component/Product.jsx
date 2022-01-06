@@ -32,15 +32,15 @@ const Product = () => {
         return (
             <>
                 <div className="div col-md-6">
-                    <Skeleton height={400} />
+                    {/* <Skeleton height={400} /> */}
                 </div>
-                <div className="col-md-6" style={{lineHeight:2}}>
+                {/* <div className="col-md-6" style={{lineHeight:2}}>
                     <Skeleton height={50} width={300}/>
                     <Skeleton height={75} />
                     <Skeleton height={25} width={150}/>
                     <Skeleton height={50} width={100}/>
                     <Skeleton height={250} width={100} style={{lineHeight:6}}/>
-                </div>
+                </div> */}
             </>
         );
     }
@@ -61,7 +61,7 @@ const Product = () => {
                         <i className="fa fa-star"></i>
                     </p>
                     <h3 className="display-6 fw-bold my-4">
-                        R${product.price}
+                        ${product.price}
                     </h3>
                     <p className="load">{product.description}</p>
                     <button className="btn btn-outline-dark px-4 py-2" 

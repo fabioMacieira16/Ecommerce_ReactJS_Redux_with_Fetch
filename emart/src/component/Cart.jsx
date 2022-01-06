@@ -42,7 +42,7 @@ function Cart({ cart }) {
                             <h3>{cartItem.title}</h3>
 
                             <p className="lead fw-bold">
-                                {cartItem.qty} X ${cartItem.price} = R${subtotal}
+                                {cartItem.qty} X ${cartItem.price} = $ {subtotal}
                             </p>
                             <button className="btn btn-outline-dark me-4" onClick={() => decrement(cartItem)}>
                                 <i className="fa fa-minus"></i>

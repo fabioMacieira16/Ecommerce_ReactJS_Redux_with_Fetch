@@ -14,7 +14,8 @@ const Login = () => {
             <form className="card-body cardbody-color p-lg-5">
 
               <div className="text-center">
-                <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                {/* <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" */}
+                <img src="/assets/user.png" className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                   width="200px" alt="profile" />
               </div>
 
